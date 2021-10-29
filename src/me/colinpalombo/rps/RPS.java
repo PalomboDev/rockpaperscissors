@@ -1,9 +1,9 @@
 package me.colinpalombo.rps;
 
+import me.colinpalombo.rps.game.GameImpl;
 import me.colinpalombo.rps.game.Game;
-import me.colinpalombo.rps.game.IGame;
-import me.colinpalombo.rps.player.IPlayer;
 import me.colinpalombo.rps.player.Player;
+import me.colinpalombo.rps.player.PlayerImpl;
 
 import java.util.Random;
 import java.util.Scanner;
@@ -17,12 +17,12 @@ public class RPS {
         System.out.print("What is your name: ");
 
         String playerOneName = SCANNER.nextLine();
-        IPlayer playerOne = new Player(playerOneName, false);
+        Player playerOne = new PlayerImpl(playerOneName, false);
 
         // TODO: Support two players
-        IPlayer playerTwo = new Player("AI", true);
+        Player playerTwo = new PlayerImpl("AI", true);
 
-        IGame game = new Game(playerOne, playerTwo);
+        Game game = new GameImpl(playerOne, playerTwo);
 
         game.start();
     }

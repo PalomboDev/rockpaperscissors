@@ -1,8 +1,8 @@
 package me.colinpalombo.rps.choice.choices;
 
-import me.colinpalombo.rps.choice.IChoice;
+import me.colinpalombo.rps.choice.Choice;
 
-public class Scissors implements IChoice {
+public class Scissors implements Choice {
 
     @Override
     public String[] getInputKeys() {
@@ -18,7 +18,7 @@ public class Scissors implements IChoice {
     }
 
     @Override
-    public IChoice getCanBeat() {
-        return IChoice.PAPER;
+    public Choice getCanBeat() {
+        return Choice.PAPER;
     }
 }

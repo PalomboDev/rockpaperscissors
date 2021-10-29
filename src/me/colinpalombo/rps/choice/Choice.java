@@ -7,22 +7,22 @@ import me.colinpalombo.rps.choice.choices.Scissors;
 import java.util.*;
 import java.util.function.Function;
 
-public interface IChoice {
+public interface Choice {
 
-    IChoice ROCK = new Rock();
-    IChoice PAPER = new Paper();
-    IChoice SCISSORS = new Scissors();
+    Choice ROCK = new Rock();
+    Choice PAPER = new Paper();
+    Choice SCISSORS = new Scissors();
 
-    List<IChoice> choices = new ArrayList<IChoice>() {{
+    List<Choice> choices = new ArrayList<Choice>() {{
         add(ROCK);
         add(PAPER);
         add(SCISSORS);
     }};
 
-    Function<String, Optional<IChoice>> getChoice = s -> {
-        IChoice selectedChoice = null;
+    Function<String, Optional<Choice>> getChoice = s -> {
+        Choice selectedChoice = null;
 
-        for (IChoice choice : choices) {
+        for (Choice choice : choices) {
             if (Arrays.stream(choice.getInputKeys()).anyMatch(s::equalsIgnoreCase)) {
                 selectedChoice = choice;
                 break;
@@ -34,9 +34,9 @@ public interface IChoice {
 
     String[] getInputKeys();
     String getDisplayName();
-    IChoice getCanBeat();
+    Choice getCanBeat();
 
-    default boolean canBeat(IChoice choice) {
+    default boolean canBeat(Choice choice) {
         return this.getCanBeat().equals(choice);
     }
 }
